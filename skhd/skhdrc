@@ -1,0 +1,46 @@
+# move focus
+# ctrl-alt
+ctrl + alt - j : yabai -m window --focus south
+ctrl + alt - k : yabai -m window --focus north
+ctrl + alt - h : yabai -m window --focus west
+ctrl + alt - l : yabai -m window --focus east
+
+# rotate windows
+shift + alt - r : yabai -m space --rotate 270
+
+# swap windows
+# ctrl-alt-shift
+shift + ctrl + alt - j : yabai -m window --swap south
+shift + ctrl + alt - k : yabai -m window --swap north
+shift + ctrl + alt - h : yabai -m window --swap west
+shift + ctrl + alt - l : yabai -m window --swap east
+
+
+cmd - r : skhd -k "cmd - space"
+
+
+# resize windows
+# ctrl-alt-cmd
+ctrl + alt + cmd - h : yabai -m window --resize left:-50:0; \
+                  yabai -m window --resize right:-50:0
+ctrl + alt + cmd  - j : yabai -m window --resize bottom:0:50; \
+                  yabai -m window --resize top:0:50
+ctrl + alt + cmd - k : yabai -m window --resize top:0:-50; \
+                  yabai -m window --resize bottom:0:-50
+ctrl + alt + cmd - l : yabai -m window --resize right:50:0; \
+                  yabai -m window --resize left:50:0
+# Rebalance windows                  
+ctrl + alt + cmd - b : yabai -m space --balance
+
+# jump spaces
+# hyper-j and hyper-k
+# managed through os
+hyper - k : skhd -k "ctrl - right"
+hyper - j : skhd -k "ctrl - left"
+
+# move windows to spaces
+# hyper-h and hyper-l
+# managed through sizeup
+# hyper - h : skhd -k "hyper - h"; sleep 2; yabai -m space --balance
+# hyper - l : skhd -k "hyper - l"; sleep 2; yabai -m space --balance
+
