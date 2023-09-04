@@ -68,7 +68,7 @@
             "fetch_version": true
           },
           "style": "powerline",
-          "template": "  \uf898 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}",
+          "template": "  \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}",
           "type": "node"
         },
         {

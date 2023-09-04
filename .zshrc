@@ -2,12 +2,12 @@ export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
 
 if [ $OS_THEME = "Light" ]; then
-  echo "OS is in light mode"
   eval "$(oh-my-posh init zsh --config ~/.config/.omp/narrow-stacked-light.json)"
 else
   eval "$(oh-my-posh init zsh --config ~/.config/.omp/narrow-stacked.json)"
-  echo "OS is in dark mode"
 fi
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias v='nvim'
 
@@ -15,19 +15,16 @@ alias vconf='cd ~/.config/nvim && nvim .'
 
 alias github='cd ~/github/'
 
-# set +e
-# DARK=`defaults read -g AppleInterfaceStyle || true`
-# set -e
+# fuzzy finder things
 
-# OS_THEME="Light"
+alias fcd='cd $(find $HOME/github -type d -depth 1 -print | fzf)'
 
-# if [ $DARK = "Dark" ]; then
-#   echo "OS is in dark mode"
-#   OS_THEME="Dark"
-# else
-#   echo "OS is in light mode"
-# fi
+bindkey '^ ' autosuggest-accept
 
-# export OS_THEME
-
-
+# pnpm
+export PNPM_HOME="/Users/nikfp/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
