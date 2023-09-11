@@ -35,8 +35,8 @@ ctrl + alt + cmd - b : yabai -m space --balance
 # jump spaces
 # hyper-j and hyper-k
 # managed through os
-hyper - k : skhd -k "ctrl - right"
-hyper - j : skhd -k "ctrl - left"
+hyper - j : skhd -k "ctrl - right"
+hyper - k : skhd -k "ctrl - left"
 
 # move windows to spaces
 # hyper-h and hyper-l
