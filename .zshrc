@@ -17,7 +17,8 @@ alias github='cd ~/github/'
 
 # fuzzy finder things
 
-alias fcd='cd $(find $HOME/github -maxdepth 1 -type d -print | fzf)'
+alias fcd='cd $(find $PWD -maxdepth 1 -type d -print | fzf)'
+alias fpr='cd $(find $HOME/github -maxdepth 1 -type d -print | fzf)'
 
 bindkey '^ ' autosuggest-accept
 
