@@ -19,6 +19,34 @@ alias github='cd ~/github/'
 
 alias fcd='cd $(find $PWD -maxdepth 1 -type d -print | fzf)'
 alias fpr='cd $(find $HOME/github -maxdepth 1 -type d -print | fzf)'
+tpr() {
+  local searchdir
+  searchdir=$(find $HOME/Documents/Github -maxdepth 1 -type d -print | fzf)
+
+  local basefile
+  basefile=$(basename "$searchdir")
+
+  if tmux ls 2>/dev/null; then
+    local tmuxls=$(tmux ls 2>/dev/null)
+    if echo tmuxls | grep -q "^$basefile:"; then
+      echo "Session exists"
+      if [ -n "$TMUX" ]; then
+        tmux switch-client -t "$basefile"
+      else
+        tmux a -t "$basefile"
+      fi
+    else
+      tmux new -d -s "$basefile" -c "$searchdir" 
+      if [ -n "$TMUX" ]; then
+        tmux switch-client -t "$basefile"
+      else
+        tmux a -t "$basefile"
+      fi
+    fi
+  else
+    tmux new -s "$basefile" -c "$searchdir"
+  fi
+}
 
 bindkey '^ ' autosuggest-accept
 
