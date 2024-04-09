@@ -21,7 +21,7 @@ alias fcd='cd $(find $PWD -maxdepth 1 -type d -print | fzf)'
 alias fpr='cd $(find $HOME/github -maxdepth 1 -type d -print | fzf)'
 tpr() {
   local searchdir
-  searchdir=$(find $HOME/Documents/Github -maxdepth 1 -type d -print | fzf)
+  searchdir=$(find $HOME/github -maxdepth 1 -type d -print | fzf)
 
   local basefile
   basefile=$(basename "$searchdir")
@@ -57,3 +57,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+. "$HOME/.asdf/asdf.sh"

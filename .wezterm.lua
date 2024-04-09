@@ -34,7 +34,13 @@ config.automatically_reload_config = true
 config.font = wezterm.font 'CaskaydiaCove NF'
 config.font_size = 16
 
+config.hide_tab_bar_if_only_one_tab = true
 
+config.default_cursor_style = "SteadyBar"
+config.cursor_blink_ease_in = "Constant"
+config.cursor_blink_ease_out = "Constant"
+	-- config.send_composed_key_when_left_alt_is_pressed = true,
+	-- config.send_composed_key_when_right_alt_is_pressed = true,
 
 config.keys = {
   {

@@ -96,13 +96,13 @@
         {
           "background": "transparent",
           "foreground": "#336395",
-          "foreground_templates": ["{{ if gt .Code 0 }}#e91e63{{ end }}"],
+          "foreground_templates": ["{{ if .Error }}#e91e63{{ end }}"],
           "properties": {
             "always_enabled": true
           },
           "style": "diamond",
-          "template": "  {{ if gt .Code 0 }}\uf00d{{ else }}\uf00c{{ end }}",
-          "type": "exit"
+          "template": "  {{ if .Error }}\uf00d{{ else }}\uf00c{{ end }}",
+          "type": "status"
         }
       ],
       "type": "prompt"
