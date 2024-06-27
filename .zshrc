@@ -15,6 +15,8 @@ alias vconf='cd ~/.config/nvim && nvim .'
 
 alias github='cd ~/github/'
 
+alias mixserv='iex -S mix phx.server'
+
 # fuzzy finder things
 
 alias fcd='cd $(find $PWD -maxdepth 1 -type d -print | fzf)'
