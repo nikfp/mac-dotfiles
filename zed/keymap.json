@@ -1,0 +1,90 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Global",
+    "bindings": {
+      "ctrl-p": null,
+      "ctrl-n": null
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-j": ["workspace::SendKeystrokes", "ctrl-n"],
+      "ctrl-k": ["workspace::SendKeystrokes", "ctrl-p"]
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrev"
+    }
+  },
+  {
+    "context": "AssistantEditor",
+    "bindings": {
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrev"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "shift-h": ["workspace::SendKeystrokes", "^"],
+      "shift-l": ["workspace::SendKeystrokes", "$"],
+      "space f f": ["workspace::SendKeystrokes", "cmd-p"],
+      "space s v": ["pane::SplitVertical", "editor::OpenFile"],
+      "space s s": ["pane::SplitHorizontal", "editor::OpenFile"],
+      "space s h": ["workspace::SendKeystrokes", "cmd-k cmd-left"],
+      "space s l": ["workspace::SendKeystrokes", "cmd-k cmd-right"],
+      "space s j": ["workspace::SendKeystrokes", "cmd-k cmd-down"],
+      "space s k": ["workspace::SendKeystrokes", "cmd-k cmd-up"],
+      "space g a": ["workspace::SendKeystrokes", "ctrl-6"],
+      "space h 1": ["pane::ActivateItem", 0],
+      "space h 2": ["pane::ActivateItem", 1],
+      "space h 3": ["pane::ActivateItem", 2],
+      "space h 4": ["pane::ActivateItem", 3],
+      "space h 5": ["pane::ActivateItem", 4],
+      "space h 6": ["pane::ActivateItem", 5],
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp"
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "j j": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      "space f f": "file_finder::Toggle",
+      "space f p": "projects::OpenRecent"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "A": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "x": "project_panel::Cut",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      // Navigate between panel
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  }
+]

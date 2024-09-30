@@ -1,2 +1,6 @@
 nvim
 simple-update-notifier/nodemon.json
+zed/conversations
+zed/conversations
+zed/embeddings/semantic-index-db.0.mdb
+zed/prompts/prompts-library-db.0.mdb
