@@ -54,7 +54,8 @@
       "space h 5": ["pane::ActivateItem", 4],
       "space h 6": ["pane::ActivateItem", 5],
       "alt-j": "editor::MoveLineDown",
-      "alt-k": "editor::MoveLineUp"
+      "alt-k": "editor::MoveLineUp",
+      "space f o": "project_panel::ToggleFocus"
     }
   },
   {
@@ -80,6 +81,7 @@
       "x": "project_panel::Cut",
       "c": "project_panel::Copy",
       "p": "project_panel::Paste",
+      "q": "workspace::ToggleLeftDock",
       // Navigate between panel
       "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
       "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],

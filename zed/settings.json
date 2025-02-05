@@ -11,9 +11,23 @@
   "assistant": {
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-20240620"
+      "model": "claude-3-5-sonnet-latest"
     },
     "version": "2"
+  },
+  "language_models": {
+    "openai": {
+      "version": "1",
+      "api_url": "http://localhost:1234/v1",
+      "low_speed_timeout_in_seconds": 90,
+      "available_models": [
+        {
+          "name": "gpt-3.5-turbo",
+          "display_name": "lm-studio",
+          "max_tokens": 16000
+        }
+      ]
+    }
   },
   "vim_mode": true,
   "ui_font_size": 16,
@@ -26,7 +40,8 @@
     "dark": "Duck Night"
   },
   "tabs": {
-    "file_icons": true
+    "file_icons": true,
+    "git_status": true
   },
   "indent_guides": {
     "enabled": true,

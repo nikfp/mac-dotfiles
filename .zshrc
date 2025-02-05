@@ -61,3 +61,52 @@ esac
 # pnpm end
 
 . "$HOME/.asdf/asdf.sh"
+
+export OPENAI_API_KEY="thisisafakekey"
+
+elixir_watch() {
+  if [[ $# -ne 2 ]]; then
+    echo "Usage: elixir_watch <directory_to_watch> <elixir_script.exs>"
+    return 1
+  fi
+
+  watch_dir="$1"
+  elixir_script="$2"
+
+  if [[ ! -d "$watch_dir" ]]; then
+    echo "Error: Directory '$watch_dir' does not exist."
+    return 1
+  fi
+
+  if [[ ! -f "$elixir_script" ]]; then
+    echo "Error: Elixir script '$elixir_script' does not exist."
+    return 1
+  fi
+
+  echo "Watching directory: $watch_dir"
+  echo "Elixir script to run: $elixir_script"
+
+  fswatch -o "$watch_dir" | while read -r file; do
+    echo "File changed: $file"
+    elixir "$elixir_script"
+  done
+}
+
+elixir_test() {
+  local watch_dir="$(pwd)"
+
+  echo "Watching directory: $watch_dir"
+  echo "Running 'mix test' when files change..."
+
+  fswatch -o "$watch_dir" | while read -r file; do
+    echo "File changed: $file"
+    mix test
+  done
+}
+
+# Docker compose needs an alias
+
+alias dc='docker-compose'
+
+eval "$(direnv hook zsh)"
+

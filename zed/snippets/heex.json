@@ -1,0 +1,10 @@
+{
+  "Adds heex block": {
+    "prefix": "hb",
+    "body": ["<%= $0 %>"]
+  },
+  "Adds heex html tag": {
+    "prefix": "ht",
+    "body": ["<.$1 $2 >\n$0\n</.$1>"]
+  }
+}

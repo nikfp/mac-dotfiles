@@ -1,0 +1,6 @@
+{
+  "Add Script Block": {
+    "prefix": "sv",
+    "body": ["<script lang=\"ts\">\n\t$0\n</script>"]
+  }
+}
