@@ -110,3 +110,6 @@ alias dc='docker-compose'
 
 eval "$(direnv hook zsh)"
 
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/nikfp/.cache/lm-studio/bin"
