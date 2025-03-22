@@ -5,7 +5,7 @@
                       :sim 20
                       :delay 300
                       :alone 150
-                      :held 500
+                      :held 100
                       }
             }
  :applications {:rdc ["^com\\.microsoft\\.rdc\\.macos"]}
