@@ -2,7 +2,7 @@
  :profiles {
             :Default {
                       :default true
-                      :sim 20
+                      :sim 100
                       :delay 300
                       :alone 150
                       :held 100
@@ -12,75 +12,41 @@
  
  :main [{:des "Key Tab mode"
          :rules [
-                 ;; let's try this another way
-
                 ;; Put right ctrl in a more better place 
                 ;; it gets really hard to type if this will be dropping keys a lot
                 [:application :right_control]
 
                 [:caps_lock [] nil {:alone :escape :held :left_control}]
 
-                ;; Here is the Hyper key
-                [:tab ["hyper" 1] nil {:afterup ["hyper" 0] :alone :tab}]
+                ;; window-mode
+                [[:tab :f] ["window-mode" 1] nil {:afterup [ "window-mode" 0 ]}]
+                [:h "open -g 'rectangle://execute-action?name=left-half'" ["window-mode" 1]]
+                [:j "open -g 'rectangle://execute-action?name=maximize'" ["window-mode" 1]]
+                [:k "open -g 'rectangle://execute-action?name=maximize'" ["window-mode" 1]]
+                [:l "open -g 'rectangle://execute-action?name=right-half'" ["window-mode" 1]]
+                [:u :!Ttab ["window-mode" 1]]
+                [:i :!TStab ["window-mode" 1]]
+                [:o :!Ograve_accent_and_tilde ["window-mode" 1]]
 
-                ;; r mode = windows
-                [:r ["r-mode" 1] ["hyper" 1] {:afterup ["r-mode" 0] :alone :r}]
-                [:h "open -g 'rectangle://execute-action?name=left-half'" ["r-mode" 1]]
-                [:j "open -g 'rectangle://execute-action?name=maximize'" ["r-mode" 1]]
-                [:k "open -g 'rectangle://execute-action?name=maximize'" ["r-mode" 1]]
-                [:l "open -g 'rectangle://execute-action?name=right-half'" ["r-mode" 1]]
-                [:u :!Ttab ["r-mode" 1]]
-                [:i :!TStab ["r-mode" 1]]
-                [:o :!Ograve_accent_and_tilde ["r-mode" 1]]
+                ;; app-mode
+                [[:tab :r] ["app-mode" 1] nil {:afterup ["app-mode" 0]}]
+                [:j "open -a 'Firefox Developer Edition.app'" ["app-mode" 1]]
+                [:k "open -a Wezterm" ["app-mode" 1]]
+                [:l "open -a 'Google Chrome.app'" ["app-mode" 1]]
+                [:semicolon "open -a Finder" ["app-mode" 1]]
+                [:u "open -a 'Microsoft Outlook.app'" ["app-mode" 1]]
+                [:i "open -a 'Microsoft Teams'" ["app-mode" 1]]
+                [:o "/bin/sh /Users/nikp/.config/karabiner_scripts/windows_app.sh" ["app-mode" 1]]
+                [:p "open -a 'Perplexity.app'" ["app-mode" 1]]
+                [:n "open -a 'Docker.app'" ["app-mode" 1]]
 
-                ;; f mode = apps
-                [:f ["f-mode" 1] ["hyper" 1] {:afterup ["f-mode" 0] :alone :f}]
-                [:j "open -a 'Firefox Developer Edition.app'" ["f-mode" 1]]
-                [:k "open -a Wezterm" ["f-mode" 1]]
-                [:l "open -a 'Google Chrome.app'" ["f-mode" 1]]
-                [:semicolon "open -a Finder" ["f-mode" 1]]
-                [:u "open -a 'Microsoft Outlook.app'" ["f-mode" 1]]
-                [:i "open -a 'Microsoft Teams'" ["f-mode" 1]]
-                [:o "/bin/sh /Users/nikp/.config/karabiner_scripts/windows_app.sh" ["f-mode" 1]]
-                [:p "open -a 'Perplexity.app'" ["f-mode" 1]]
-                [:n "open -a 'Docker.app'" ["f-mode" 1]]
+                ;; direction-mode
+                [[:tab :d] ["direction-mode" 1] nil {:afterup ["direction-mode" 0]}]
+                [:h :left_arrow ["direction-mode" 1]]
+                [:j :down_arrow ["direction-mode" 1]]
+                [:k :up_arrow ["direction-mode" 1]]
+                [:l :right_arrow ["direction-mode" 1]]
 
-                ;; d mode = direction keys
-                [:d ["d-mode" 1] ["hyper" 1] {:afterup ["d-mode" 0] :alone :d}]
-                [:h :left_arrow ["d-mode" 1]]
-                [:j :down_arrow ["d-mode" 1]]
-                [:k :up_arrow ["d-mode" 1]]
-                [:l :right_arrow ["d-mode" 1]]
-
-                ;; f mode = app navigation
-
-                 ;; Caps lock to escape
-                ;; [:caps_lock :escape]
-                ;; [:tab   ["tab-mode" 1] nil {:afterup ["tab-mode" 0] :alone :tab}] 
-                ;; [:r ["r-mode" 1] nil {:afterup ["r-mode" 0] :alone :r}]
-                ;; [:w ["w-mode" 1] nil {:afterup ["w-mode" 0] :alone :w}]
-                ;; [:q ["q-mode" 1] nil {:afterup ["q-mode" 0] :alone :q}]
-                ;; ;; tab mode directional keys
-                ;; [:h :left_arrow ["tab-mode" 1]]
-                ;; [:j :down_arrow ["tab-mode" 1]]
-                ;; [:k :up_arrow ["tab-mode" 1]]
-                ;; [:l :right_arrow ["tab-mode" 1]]
-                ;; ;; r mode application shortcuts
-                ;; [:u "open -a Wezterm" ["r-mode" 1]]
-                ;; [:i "open -a Finder" ["r-mode" 1]]
-                ;; [:j "open -a 'Firefox Developer Edition.app'" ["r-mode" 1]]
-                ;; [:k "open -a 'Microsoft Outlook.app'" ["r-mode" 1]]
-                ;; [:l "open -a 'Microsoft Teams'" ["r-mode" 1]]
-                ;; [:n "/bin/sh /Users/nikp/.config/karabiner_scripts/windows_app.sh" ["r-mode" 1]]
-                ;; ;; w mode - window management
-                ;; [:h "open -g 'rectangle://execute-action?name=left-half'" ["w-mode" 1]]
-                ;; [:j "open -g 'rectangle://execute-action?name=maximize'" ["w-mode" 1]]
-                ;; [:k "open -g 'rectangle://execute-action?name=maximize'" ["w-mode" 1]]
-                ;; [:l "open -g 'rectangle://execute-action?name=right-half'" ["w-mode" 1]]
-                ;; ;; q in app navigation shortcuts
-                ;; [:j :!Ttab ["q-mode" 1]]
-                ;; [:k :!TStab ["q-mode" 1]]
-                ;; [:h :a ["q-mode" 1]]
                 ;; Home Row Mods
                 ;; [:f :left_shift :!rdc {:alone :f }]
                 ;; [:d :left_option :!rdc {:alone :d }]
@@ -90,6 +56,8 @@
                 ;; [:k :right_option :!rdc {:alone :k }]
                 ;; [:l :right_command :!rdc {:alone :l }]
                 ;; [:semicolon :right_control :!rdc {:alone :semicolon }]
+
+                ;; Media controls for keyboards without explicit keys
                 [:!Sf8 :mute ]
                 [:!Sf9 :play_or_pause ]
                 [:!Sf10 :volume_decrement]
