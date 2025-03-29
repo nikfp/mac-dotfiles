@@ -19,8 +19,8 @@
                 [:caps_lock [] nil {:alone :escape :held :left_control}]
 
                 ;; get parens in easier reach
-                [:left_shift nil nil {:held :left_shift :alone :!S9}]
-                [:right_shift nil nil {:held :right_shift :alone :!S0}]
+                ;; [:left_shift nil nil {:held :left_shift :alone :!S9}]
+                ;; [:right_shift nil nil {:held :right_shift :alone :!S0}]
 
                 ;; window-mode
                 [[:tab :f] ["window-mode" 1] nil {:afterup [ "window-mode" 0 ]}]
